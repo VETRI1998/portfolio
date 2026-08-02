@@ -180,24 +180,147 @@ img,svg{ display:block; }
 .duo-card p{ font-size:13.5px; color:var(--muted); }
 
 /* ============ SKILLS ============ */
-.skills-grid-wrap{ display:grid; grid-template-columns:repeat(2,1fr); gap:22px; }
+/* ===========================
+   Skills Section
+=========================== */
+
+.skills-grid-wrap{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+    gap:24px;
+    margin-top:40px;
+}
+
 .skill-card{
-  background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:24px;
-  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:24px;
+    transition:all .35s ease;
+    position:relative;
+    overflow:hidden;
 }
-.skill-card:hover{ transform:translateY(-4px); box-shadow:var(--shadow); border-color:transparent; }
-.skill-card-head{ display:flex; align-items:center; gap:10px; margin-bottom:16px; }
+
+.skill-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:linear-gradient(90deg,var(--gold),var(--teal));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.35s ease;
+}
+
+.skill-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.08);
+    border-color:transparent;
+}
+
+.skill-card:hover::before{
+    transform:scaleX(1);
+}
+
+.skill-card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-bottom:18px;
+}
+
 .skill-card-head .icon-badge{
-  width:34px; height:34px; border-radius:9px; background:var(--ink); color:var(--gold);
-  display:flex; align-items:center; justify-content:center;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:var(--ink);
+    color:var(--gold);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
 }
-.skill-card-head h3{ font-size:15px; }
-.tag-row{ display:flex; flex-wrap:wrap; gap:8px; }
+
+.skill-card-head .icon{
+    width:20px;
+    height:20px;
+    fill:currentColor;
+}
+
+.skill-card-head h3{
+    font-size:18px;
+    font-weight:700;
+    color:var(--text);
+    margin:0;
+}
+
+.tag-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
 .tag{
-  font-family:var(--font-mono); font-size:12px; background:#fff; border:1px solid var(--line); color:var(--text);
-  padding:6px 11px; border-radius:20px; transition:border-color .2s ease, color .2s ease;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 14px;
+    border-radius:999px;
+    background:#fff;
+    border:1px solid var(--line);
+    color:var(--text);
+    font-family:var(--font-mono);
+    font-size:12px;
+    font-weight:500;
+    transition:all .25s ease;
+    cursor:default;
 }
-.skill-card:hover .tag{ border-color:var(--teal); }
+
+.tag:hover{
+    background:var(--teal);
+    color:#fff;
+    border-color:var(--teal);
+    transform:translateY(-2px);
+}
+
+.skill-card:hover .tag{
+    border-color:var(--teal);
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:992px){
+
+    .skills-grid-wrap{
+        grid-template-columns:1fr;
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:576px){
+
+    .skill-card{
+        padding:20px;
+    }
+
+    .skill-card-head h3{
+        font-size:16px;
+    }
+
+    .tag{
+        font-size:11px;
+        padding:7px 12px;
+    }
+
+}
 
 /* ============ EXPERIENCE TIMELINE ============ */
 .timeline{ position:relative; padding-left:32px; }
@@ -322,7 +445,7 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
     <div class="hero-grid">
       <div>
         <p class="eyebrow">Available for new opportunities</p>
-        <h1>Building &amp; testing <em>ETL pipelines</em> that companies can trust.</h1>
+        <h1>Building &amp; Developing <em>ETL pipelines</em> that companies can trust.</h1>
         <p class="hero-sub">
           ETL Developer &amp; Tester / Junior Data Engineer with 1+ year building and validating
           cloud-based data pipelines on AWS, Databricks, and Delta Lake — from writing the pipeline
@@ -331,7 +454,7 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
         <div class="hero-actions">
           <a href="Sivavetrivel_M_Resume.pdf" download class="btn btn-gold">
             <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg>
-            Download Résumé
+            Download Resume
           </a>
           <a href="#contact" class="btn btn-ghost">
             <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 6l9 6 9-6M4 5h16v14H4z"/></svg>
@@ -367,8 +490,8 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
             <div class="node">
               <svg class="icon" viewBox="0 0 24 24" width="16" height="16"><path d="M20 6L9 17l-5-5"/></svg>
             </div>
-            <div class="stage-name">VALIDATE</div>
-            <div class="stage-sub">Tested &amp; shipped</div>
+            <div class="stage-name">LOAD</div>
+            <div class="stage-sub">Tested &amp; Loaded</div>
           </div>
         </div>
       </div>
@@ -386,7 +509,6 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
 
 <main>
 
-  <!-- ============ ABOUT ============ -->
   <section id="about" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -436,67 +558,166 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
     </div>
   </section>
 
-  <!-- ============ SKILLS ============ -->
   <section id="skills" class="section section-alt">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow-dark">02 — Skills</span>
-        <h2>Technical Skills</h2>
-        <p>Tools and practices I use across the pipeline lifecycle, from ingestion to sign-off.</p>
-      </div>
-      <div class="skills-grid-wrap reveal-stagger">
+  <div class="container">
 
-        <div class="skill-card">
-          <div class="skill-card-head">
-            <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-            <h3>Cloud &amp; Big Data</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">AWS S3</span><span class="tag">EC2</span><span class="tag">Lambda</span>
-            <span class="tag">Glue</span><span class="tag">IAM</span><span class="tag">Databricks</span>
-            <span class="tag">Delta Lake</span><span class="tag">Databricks Asset Bundles</span><span class="tag">Databricks SQL</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-head">
-            <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/></svg></div>
-            <h3>ETL Testing &amp; QA</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Test Case Design</span><span class="tag">Source-to-Target Mapping</span>
-            <span class="tag">Data Validation &amp; Reconciliation</span><span class="tag">Requirement Traceability</span>
-            <span class="tag">Regression Testing</span><span class="tag">UAT Support</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-head">
-            <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M4 17l6-6-6-6M12 19h8"/></svg></div>
-            <h3>Programming Languages</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Python</span><span class="tag">SQL</span><span class="tag">JavaScript</span>
-            <span class="tag">HTML5</span><span class="tag">CSS3</span>
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <div class="skill-card-head">
-            <div class="icon-badge"><svg class="icon" viewBox="0 0 24 24" width="17" height="17"><path d="M6 3v12M6 15a3 3 0 100 6 3 3 0 000-6zm0-12a3 3 0 100-6 3 3 0 000 6zm12 0a3 3 0 100-6 3 3 0 000 6zm0 0v3a6 6 0 01-6 6"/></svg></div>
-            <h3>DevOps &amp; Collaboration</h3>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Jenkins CI/CD</span><span class="tag">Git</span><span class="tag">Jira</span>
-            <span class="tag">Agile Scrum</span><span class="tag">Sprint Planning</span><span class="tag">MySQL</span><span class="tag">SQLite</span>
-          </div>
-        </div>
-
-      </div>
+    <div class="section-head reveal">
+      <span class="eyebrow-dark">02 — Skills</span>
+      <h2>Technical Skills</h2>
+      <p>Technologies, tools, and practices I use across Data Engineering, ETL Development, and Data Quality Testing.</p>
     </div>
-  </section>
 
-  <!-- ============ EXPERIENCE ============ -->
+    <div class="skills-grid-wrap reveal-stagger">
+
+      <!-- Cloud & Big Data -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/>
+            </svg>
+          </div>
+          <h3>Cloud &amp; Big Data</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">AWS S3</span>
+          <span class="tag">AWS EC2</span>
+          <span class="tag">AWS Lambda</span>
+          <span class="tag">AWS Glue</span>
+          <span class="tag">AWS IAM</span>
+          <span class="tag">Databricks</span>
+          <span class="tag">Delta Lake</span>
+          <span class="tag">Databricks SQL</span>
+          <span class="tag">Databricks Asset Bundles</span>
+          <span class="tag">Unity Catalog</span>
+          <span class="tag">PySpark</span>
+        </div>
+      </div>
+
+      <!-- ETL Testing -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"/>
+            </svg>
+          </div>
+          <h3>ETL Testing &amp; Data Quality</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">ETL Testing</span>
+          <span class="tag">Test Case Design</span>
+          <span class="tag">Source-to-Target Mapping</span>
+          <span class="tag">Data Validation</span>
+          <span class="tag">Data Reconciliation</span>
+          <span class="tag">SQL Validation</span>
+          <span class="tag">Regression Testing</span>
+          <span class="tag">Requirement Traceability</span>
+          <span class="tag">Defect Tracking</span>
+          <span class="tag">Root Cause Analysis</span>
+          <span class="tag">UAT Support</span>
+          <span class="tag">Test Documentation</span>
+        </div>
+      </div>
+
+      <!-- Programming -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M4 17l6-6-6-6M12 19h8"/>
+            </svg>
+          </div>
+          <h3>Programming &amp; Databases</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">PySpark</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">SQLite</span>
+        </div>
+      </div>
+
+      <!-- DevOps & Collaboration -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M6 3v12M6 15a3 3 0 100 6 3 3 0 000-6zm0-12a3 3 0 100-6 3 3 0 000 6zm12 0a3 3 0 100-6 3 3 0 000 6zm0 0v3a6 6 0 01-6 6"/>
+            </svg>
+          </div>
+          <h3>DevOps &amp; Collaboration</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">Jenkins CI/CD</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Agile Scrum</span>
+          <span class="tag">Sprint Planning</span>
+          <span class="tag">Version Control</span>
+          <span class="tag">CI/CD Pipelines</span>
+        </div>
+      </div>
+
+      <!-- Data Engineering -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M12 2l9 4v6c0 5-3.8 9.7-9 12-5.2-2.3-9-7-9-12V6l9-4z"/>
+            </svg>
+          </div>
+          <h3>Data Engineering</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">ETL Pipelines</span>
+          <span class="tag">Data Integration</span>
+          <span class="tag">Data Migration</span>
+          <span class="tag">Data Warehousing</span>
+          <span class="tag">Data Modeling</span>
+          <span class="tag">Delta Load</span>
+          <span class="tag">Full Load</span>
+          <span class="tag">Pipeline Monitoring</span>
+          <span class="tag">Workflow Automation</span>
+        </div>
+      </div>
+
+      <!-- Tools & Business Applications -->
+      <div class="skill-card">
+        <div class="skill-card-head">
+          <div class="icon-badge">
+            <svg class="icon" viewBox="0 0 24 24" width="17" height="17">
+              <path d="M3 5h18v14H3zM7 9h10M7 13h6"/>
+            </svg>
+          </div>
+          <h3>Tools &amp; Business Applications</h3>
+        </div>
+
+        <div class="tag-row">
+          <span class="tag">Salesforce</span>
+          <span class="tag">Microsoft Excel</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Analytical Thinking</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <section id="experience" class="section">
     <div class="container">
       <div class="section-head reveal">
@@ -547,7 +768,6 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
     </div>
   </section>
 
-  <!-- ============ PROJECTS ============ -->
   <section id="projects" class="section section-alt">
     <div class="container">
       <div class="section-head reveal">
@@ -592,7 +812,6 @@ a:focus-visible, .btn:focus-visible, .nav-cta:focus-visible{ outline:2px solid v
     </div>
   </section>
 
-  <!-- ============ EDUCATION ============ -->
   <section id="education" class="section">
     <div class="container">
       <div class="section-head reveal">

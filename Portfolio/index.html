@@ -3,79 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sivavetrivel M | Portfolio</title>
+  <title>Sivavetrivel M | ETL Developer & Tester</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <header>
-    <div class="container">
-      <h1>Sivavetrivel M</h1>
-      <p>Aspiring Software Developer | Full Stack Enthusiast | Python Specialist</p>
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">// sivavetrivel_m</p>
+        <h1>Sivavetrivel M</h1>
+        <p class="role">ETL Developer &amp; Tester <span class="dot">·</span> Junior Data Engineer</p>
+      </div>
+      <a href="Sivavetrivel_M_Resume.pdf" download class="btn btn-primary">Download Résumé</a>
     </div>
+
+    <!-- Pipeline stage nav — the site's signature element: my own work framed as an ETL run -->
+    <nav class="pipeline">
+      <div class="container pipeline-track">
+        <a href="#extract" class="stage">
+          <span class="stage-tag">EXTRACT</span><span class="stage-label">About</span>
+        </a>
+        <span class="flow" aria-hidden="true"></span>
+        <a href="#transform" class="stage">
+          <span class="stage-tag">TRANSFORM</span><span class="stage-label">Skills</span>
+        </a>
+        <span class="flow" aria-hidden="true"></span>
+        <a href="#load" class="stage">
+          <span class="stage-tag">LOAD</span><span class="stage-label">Work</span>
+        </a>
+        <span class="flow" aria-hidden="true"></span>
+        <a href="#connect" class="stage">
+          <span class="stage-tag">CONNECT</span><span class="stage-label">Contact</span>
+        </a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <div class="container">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
   <main class="container">
-    <section id="about" class="card">
-      <h2>About Me</h2>
+
+    <section id="extract" class="card">
+      <p class="section-tag">01 · EXTRACT</p>
+      <h2>About</h2>
       <p>
-        Final-year CSE student with hands-on experience in Python full stack development and building real-world projects like a mental healthcare chatbot. Completed a full stack internship at Uniq Technology, gaining strong skills in web development, APIs, and databases. Eager to contribute to innovative IT projects and grow as a software developer.
+        ETL Developer &amp; Tester with 1+ year of hands-on industry experience building and validating
+        scalable cloud-based ETL pipelines at <strong>DataKalamIT Pvt. Ltd.</strong> On the development
+        side, I design full and incremental (delta) data pipelines using AWS S3, Databricks, and Delta
+        Lake, with Jenkins CI/CD automation that has cut deployment time by roughly 50%. On the testing
+        side, I write test cases and source-to-target mapping documents, and run requirement-based data
+        validation to verify accuracy across pipeline outputs. I move comfortably between building
+        pipelines and rigorously testing them, collaborating with Salesforce, QA, and business teams in
+        Agile Scrum environments using Jira.
       </p>
-      <a href="Sivavetrivel_Resume .pdf" download class="btn">Download Resume</a>
     </section>
 
-    <section id="skills" class="card">
+    <section id="transform" class="card">
+      <p class="section-tag">02 · TRANSFORM</p>
       <h2>Technical Skills</h2>
-      <div class="skills-grid">
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Python</span>
-        <span>Flask</span>
-        <span>FastAPI</span>
-        <span>Django</span>
-        <span>MySQL</span>
-        <span>Git & GitHub</span>
+      <div class="skills-cols">
+        <div class="skill-group">
+          <h3>Programming Languages</h3>
+          <div class="skills-grid">
+            <span>Python</span><span>SQL</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Cloud &amp; Big Data</h3>
+          <div class="skills-grid">
+            <span>AWS S3</span><span>EC2</span><span>Lambda</span><span>Glue</span><span>IAM</span>
+            <span>Databricks</span><span>Delta Lake</span><span>Databricks Asset Bundles</span><span>Databricks SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>ETL Testing &amp; Quality Assurance</h3>
+          <div class="skills-grid">
+            <span>Test Case Design</span><span>Source-to-Target Mapping</span><span>Data Validation &amp; Reconciliation</span>
+            <span>Requirement Traceability</span><span>Regression Testing</span><span>UAT Support</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>DevOps &amp; Collaboration</h3>
+          <div class="skills-grid">
+            <span>Jenkins CI/CD</span><span>Git &amp; GitHub</span><span>Jira</span><span>Agile Scrum</span>
+            <span>Sprint Planning</span><span>MySQL</span><span>SQLite</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="projects" class="card">
-      <h2>Projects</h2>
-      <div class="project">
-        <h3> Student Task Tracker </h3>
-        <p>• Developed a full-stack web application using Django and MySQL to help students manage and track academic tasks with deadlines and status updates.<br>
-           • Implemented user authentication, task creation, and completion features, improving task organization for students by 80%.<br>
-           • Deployed the project on Render using Gunicorn for WSGI support, and configured PostgreSQL for production use.</p>
+    <section id="load" class="card">
+      <p class="section-tag">03 · LOAD</p>
+      <h2>Work</h2>
+
+      <div class="project featured">
+        <p class="project-kicker">Featured — from current role</p>
+        <h3>Automated Data Pipeline for Business Analytics</h3>
+        <p class="stack">AWS S3 · Databricks · Delta Lake · Jenkins · Databricks SQL</p>
+        <ul>
+          <li>Designed and implemented scalable ETL pipelines to ingest structured and semi-structured data from 3 source systems.</li>
+          <li>Applied full-load and incremental (delta) ingestion strategies for efficient processing of multi-GB datasets.</li>
+          <li>Automated workflow orchestration using Jenkins, cutting manual operational effort and deployment time by approximately 50%.</li>
+          <li>Used Databricks Asset Bundles for deployment automation, configuration management, and workflow handling across 2 environments.</li>
+          <li>Implemented Databricks SQL validation rules and test cases to ensure data quality, accuracy, and reliability throughout the pipeline lifecycle.</li>
+          <li>Delivered analytics-ready, tested datasets integrated with Salesforce reporting systems for business consumption.</li>
+        </ul>
       </div>
-      <div class="project">
-        <h3>Flask-PDF-Invoice-Genaretor</h3>
-        <p>• Developed a full-stack Flask web application to generate professional single-page PDF invoices dynamically based on user inputs like client details and item list.<br>
-          • Integrated xhtml2pdf for real-time invoice rendering and implemented clean Jinja2 templates with responsive HTML/CSS layout.</p>
+
+      <p class="subheading">Other projects</p>
+      <div class="project-grid">
+        <div class="project">
+          <h3>Student Task Tracker</h3>
+          <p class="stack">Django · MySQL · PostgreSQL · Render</p>
+          <ul>
+            <li>Full-stack web app for students to manage and track academic tasks with deadlines and status updates.</li>
+            <li>Built user authentication, task creation, and completion tracking.</li>
+            <li>Deployed on Render using Gunicorn, with PostgreSQL for production.</li>
+          </ul>
+        </div>
+        <div class="project">
+          <h3>Flask PDF Invoice Generator</h3>
+          <p class="stack">Flask · xhtml2pdf · Jinja2</p>
+          <ul>
+            <li>Full-stack Flask app generating professional single-page PDF invoices dynamically from client details and item lists.</li>
+            <li>Integrated xhtml2pdf for real-time rendering with responsive Jinja2/HTML/CSS templates.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section id="contact" class="card">
+    <section id="connect" class="card">
+      <p class="section-tag">04 · CONNECT</p>
       <h2>Contact</h2>
-      <p>Email: <a href="https://www.gmail.com" target="_blank">vetri1998kpr@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/sivavetrivel-m-b2b72b29b/" target="_blank">linkedin.com/in/sivavetrivel</a></p>
-      <p>Phone: <a href="https://wa.me/8248736004" target="_blank">8248736004</a></p>
+      <div class="contact-grid">
+        <a href="mailto:vetri1998kpr@gmail.com" class="contact-item">
+          <span class="contact-label">Email</span>vetri1998kpr@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/sivavetrivel-m" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">LinkedIn</span>linkedin.com/in/sivavetrivel-m
+        </a>
+        <a href="https://github.com/VETRI1998" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">GitHub</span>github.com/VETRI1998
+        </a>
+        <a href="https://wa.me/918248736004" target="_blank" rel="noopener" class="contact-item">
+          <span class="contact-label">Phone</span>+91 82487 36004
+        </a>
+      </div>
     </section>
+
   </main>
 
   <footer>
     <div class="container">
-      <p>&copy; 2025 Sivavetrivel M. All Rights Reserved.</p>
+      <p>&copy; 2026 Sivavetrivel M. All rights reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>
